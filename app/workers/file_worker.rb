@@ -11,7 +11,7 @@ class FileWorker
   	@user  = User.find_by_id(user_id)
   	res    = true
 
-    CSV.foreach(open(file_path), headers: true) do |row|
+    CSV.foreach(file_path, headers: true) do |row|
     	hash = row.to_h
       @inpu_array = Array.new(hash.length){Array.new} if res
 
