@@ -1,11 +1,11 @@
 require 'sidekiq'
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: ENV['REDISTOGO_URL'], size: ENV['CLIENT_SIZE'] }
+  config.redis = { url: ENV['REDISTOGO_URL'], size: ENV['CLIENT_SIZE'].to_i }
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { url: ENV['REDISTOGO_URL'], size: ENV['SERVER_SIZE'] }
+  config.redis = { url: ENV['REDISTOGO_URL'], size: ENV['SERVER_SIZE'].to_i }
 
   Rails.application.config.after_initialize do
     Rails.logger.info("DB Connection Pool size for Sidekiq Server before disconnect is: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
