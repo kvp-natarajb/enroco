@@ -46,6 +46,7 @@ gem 'sidekiq_status'
 gem 'simple_form'
 gem 'remotipart'
 gem 'will_paginate', '~> 3.1.0'
+gem 'redis'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

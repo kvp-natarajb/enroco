@@ -74,7 +74,7 @@ $(document).ready(function()
           }
 
           if ($('#job-progress').text() == '100%') {
-             show_notify('<strong>Data has been saved successfully.</strong>', 'success')
+             show_notify('<strong>Data has been saved successfully. Please check your mail.</strong>', 'success')
           }
         }
       });
