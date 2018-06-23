@@ -1,17 +1,18 @@
 require 'csv'
 require 'sidekiq'
-require 'uri'
+
 # require 'sidekiq/testing/inline'
 include Sidekiq::Worker
 include SidekiqStatus::Worker
 class FileWorker
   sidekiq_options :retry => false
 
-  def perform(file_path, denomination, user_id)
+  def perform(file_id, denomination, user_id)
   	@user  = User.find_by_id(user_id)
+    @file  = TempFile.find_by_id(file_id)
   	res    = true
 
-    CSV.foreach(URI.parse(file_path), headers: true) do |row|
+    CSV.foreach(@file.attachment.current_path, headers: true) do |row|
     	hash = row.to_h
       @inpu_array = Array.new(hash.length){Array.new} if res
 
@@ -42,6 +43,7 @@ class FileWorker
   	end
 
   	UserMailer.task_completion_email(@user, @results).deliver_now
+    @file.destroy
   end
 end
 

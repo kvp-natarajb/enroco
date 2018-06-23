@@ -12,10 +12,13 @@ class SkusController < ApplicationController
   end
 
   def import
-   @job_id = FileWorker.perform_async(params[:sku][:file].path, params[:sku][:denomination], current_user.id)
-    # Sku.import(params[:sku][:file].path)
-    respond_to do |format|
-      format.js
+    @temp = TempFile.create(attachment: params[:sku][:file])
+    if @temp
+     @job_id = FileWorker.perform_async(@temp.try(:id), params[:sku][:denomination], current_user.id)
+      # Sku.import(params[:sku][:file].path)
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
