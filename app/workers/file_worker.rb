@@ -1,5 +1,6 @@
 require 'csv'
 require 'sidekiq'
+require 'open-uri'
 # require 'sidekiq/testing/inline'
 include Sidekiq::Worker
 include SidekiqStatus::Worker
@@ -10,7 +11,7 @@ class FileWorker
   	@user  = User.find_by_id(user_id)
   	res    = true
 
-    CSV.foreach(file_path, headers: true) do |row|
+    CSV.foreach(open(file_path), headers: true) do |row|
     	hash = row.to_h
       @inpu_array = Array.new(hash.length){Array.new} if res
 
@@ -39,7 +40,7 @@ class FileWorker
       @results << @user.skus.create(denomination: denomination, combination: value)
       at index
   	end
-    
+
   	UserMailer.task_completion_email(@user, @results).deliver_now
   end
 end
