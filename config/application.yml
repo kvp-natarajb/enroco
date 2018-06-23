@@ -1,0 +1,23 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+
+
+DATABASE_URL: "postgres://chris:raj990@localhost/enroco_development"
+DB_USERNAME: 'chris'
+DB_PASSWORD: 'raj990'
+FACEBOOK_APP_ID: '880753055463615'
+FACEBOOK_APP_SECRET: '5889900b7e29ee1b21c7192492a007d8'
+GOOGLE_APP_ID: "126129609468-n1daro1179legjplum67dlujh1fggeft.apps.googleusercontent.com"
+GOOGLE_APP_SECRET: "wpwb1rmip_LD7Q4urdvMSL4X"
+TWITTER_APP_ID: "JfaJ6iKrDgEo0SCJsXQyOxZZf"
+TWITTER_APP_SECRET: "8ct6gxbGc4yLmmvfKGuDBKaEzaualrZ8llMPsb7JaLam6auH2Z"

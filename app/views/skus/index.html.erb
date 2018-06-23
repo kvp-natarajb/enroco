@@ -1,0 +1,23 @@
+<h1>Skus</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Denomination</th>
+      <th scope="col">Combination</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skus.each do |sku| %>
+      <tr>
+        <td><%= sku.try(:id) %></td>
+        <td><%= sku.try(:denomination) %></td>
+        <td><%= sku.try(:combination) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @skus %>

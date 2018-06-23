@@ -1,0 +1,20 @@
+<%= p "dgjddshsdkhdsksdds================================" %>
+<h1>Skus</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Denomination</th>
+      <th>Combination</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skus.each do |sku| %>
+      <tr>
+        <td><%= sku.denomination %></td>
+        <td><%= sku.combination %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

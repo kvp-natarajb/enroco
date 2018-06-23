@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+  username:  <%= ENV['DB_USERNAME'] %>
+  password:  <%= ENV['DB_PASSWORD'] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  username:  <%= ENV['DB_USERNAME'] %>
+  password:  <%= ENV['DB_PASSWORD'] %>
+
+
+qa:
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="content">
+          <%=  form_for(sku, url: import_skus_path, method: :post, :multipart => true, remote: true) do |f| %>
+            <% if sku.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(sku.errors.count, "error") %> prohibited this sku from being saved:</h2>
+
+                <ul>
+                <% sku.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="field">
+              <%= f.label :denomination %>
+              <%= f.number_field :denomination, class: "form-control", required: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :upload_a_CSV %>
+              <%= f.file_field :file, class: "form-control", required: true %>
+            </div>
+
+            <div class="actions">
+              <%= f.button :submit, class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+</div>
+
+    

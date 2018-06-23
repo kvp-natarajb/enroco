@@ -1,0 +1,11 @@
+// $("#combinations").append("<%= escape_javascript (render partial: 'skus/index',  :locals => {:@skus => @skus}) %>");
+$(document).ready(function()
+{
+	$('body #combinations').append('<%= j render 'skus/index', :@skus => @skus %>')
+});
+// console.log("nhdjsdhksd");
+// $('#combinations').html('<%= escape_javascript render 'skus/index', :locals => {:@skus => @skus} %>');
+// $("#combinations").append("<h1>Home</h1>")
+// $("#combinations").html("<h1>Home</h1>").html_safe
+// $("#combinations").append("<h1>Home</h1>").html_safe
+// $('#combinations').append("<%= render partial: 'skus/index', :locals => {:@skus => @skus} %>").html_safe
