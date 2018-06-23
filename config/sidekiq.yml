@@ -4,7 +4,7 @@
 # pick it up automatically.
 ---
 :verbose: false
-:concurrency: <%=  ENV['CONCURRENCY'] %
+:concurrency: <%=  ENV['CONCURRENCY'] %>
 
 # Set timeout to 8 on Heroku, longer if you manage your own systems.
 :timeout: 30
@@ -20,6 +20,6 @@
 
 # you can override concurrency based on environment
 production:
-  :concurrency:  <%=  ENV['CONCURRENCY'] %
+  :concurrency:  <%=  ENV['CONCURRENCY'] %>
 staging:
-  :concurrency:  <%=  ENV['CONCURRENCY'] %
+  :concurrency:  <%=  ENV['CONCURRENCY'] %>
